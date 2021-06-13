@@ -12,6 +12,7 @@ def getWatter(region_page, latest_notification, notification_date):
 
     message = notification_element[0].text.strip()
     date = date_element[0].text.strip()
+    anykey = input("Page information is downloaded. Press any key to continue.")
 
     return(f"""        Район Изгрев 
         
