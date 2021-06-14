@@ -1,6 +1,8 @@
-
 from email_sending import letter_sending
 from ViK import getWatter
+import time
+from datetime import datetime
+
 
 
 def main():
@@ -9,13 +11,32 @@ def main():
         latest_notification='#main_content > div:nth-child(2) > div.list-item-text',
         notification_date='#main_content > div:nth-child(2) > div.list-item-date')
 
-    print(letter_sending(regionIzgrev))
+    print(letter_sending("""Меденките, доста ви обичкат <3 :* ^.^
+    
+    
+                                                            _____$$$$_________$$$$
+                                                            ___$$$$$$$$_____$$$$$$$$
+                                                            _$$$$$$$$$$$$_$$$$$$$$$$$$
+                                                            $$$$$$$$$$$$$$$$$$$$$$$$$$$
+                                                            $$$$$$$$$$$$$$$$$$$$$$$$$$$
+                                                            _$$$$$$$$$$$$$$$$$$$$$$$$$
+                                                            __$$$$$$$$$$$$$$$$$$$$$$$
+                                                            ____$$$$$$$$$$$$$$$$$$$
+                                                            _______$$$$$$$$$$$$$
+                                                            __________$$$$$$$
+                                                            ____________$$$
+                                                            _____________$
 
-    anykey = input("Program finished successfully. Press any key to Close.")
+    
+    """))
 
-    return anykey
+    now = datetime.now()
+    print(f"=> Program finished successfully at /{now}/. <= \n\n")
+
 
 
 
 if __name__ == "__main__":
-    print(main())
+    while True:
+        main()
+        time.sleep(3600)

@@ -12,20 +12,16 @@ def getWatter(region_page, latest_notification, notification_date):
 
     message = notification_element[0].text.strip()
     date = date_element[0].text.strip()
-    anykey = input("Page information is downloaded. Press any key to continue.")
+    ##anykey = input("\n=> Page information is downloaded. Press any key to continue.")
 
-    return(f"""        Район Изгрев 
+    email_notification = (f"""        Район Изгрев 
         
         {date}
         Днес без вода ще бъдат {message}
     """)
 
 
+    return email_notification
 
-regionIzgrev = getWatter(
-    region_page='http://www.vikvarna.com/bg/messages/breakdown.html?region_id=15&sub_region_id=22',
-    latest_notification='#main_content > div:nth-child(2) > div.list-item-text',
-    notification_date= '#main_content > div:nth-child(2) > div.list-item-date')
 
-print(regionIzgrev)
 

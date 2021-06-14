@@ -8,7 +8,7 @@ def letter_sending(email_subject):
 
     to_list = emails  # List of receivers
     content = f"{email_subject}"
-    subject = f'Izvestie za vodicata.'
+    subject = f'Известие за обичкането.'
 
     # abv.bg Fix
     msg = MIMEText(content.encode('utf-8'), 'plain', 'UTF-8')
@@ -25,8 +25,9 @@ def letter_sending(email_subject):
 
     # Logging and sending the emails
     conn.login(theone, secret)  # Login function
-    anykey = input("E-mail log in successful. Press any key to continue.")
+    ## anykey = input("\n=> E-mail log in successful. Press any key to continue.")
+    print(f"\n=> Sending e-mails to the following addresses: {to_list}")
     conn.sendmail(theone, to_list, msg.as_string())  # SENDING the e-mails
 
 
-    return f"Sending e-mails to the following addresses: {to_list}"
+    return "Emails have been sent."
