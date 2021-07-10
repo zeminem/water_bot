@@ -7,10 +7,10 @@ from email.mime.text import MIMEText
 def letter_sending(email_subject):
 
     to_list = emails  # List of receivers
-    content = f"{email_subject}"
-    subject = f'Известие за обичкането.'
+    content = f"{email_subject}" # A basic string that is returned by the scraping function
+    subject = f'Известие за водицата.'
 
-    # abv.bg Fix
+    # abv.bg Fix. Some ASCII conversion needed for a Bulgarian e-mail domain
     msg = MIMEText(content.encode('utf-8'), 'plain', 'UTF-8')
     msg['From'] = f"{theone}"
     msg['MIME-Version'] = "1.0"
@@ -25,9 +25,7 @@ def letter_sending(email_subject):
 
     # Logging and sending the emails
     conn.login(theone, secret)  # Login function
-    ## anykey = input("\n=> E-mail log in successful. Press any key to continue.")
-    print(f"\n=> Sending e-mails to the following addresses: {to_list}")
     conn.sendmail(theone, to_list, msg.as_string())  # SENDING the e-mails
 
 
-    return "Emails have been sent."
+

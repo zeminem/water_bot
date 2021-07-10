@@ -2,18 +2,21 @@ import bs4
 import requests
 
 
-def getWatter(region_page, latest_notification, notification_date):
+def scrape_vik(region_page, latest_notification, notification_date):
+
+    # Scrape the given web page
     res = requests.get(region_page)
-    # res.raise_for_status()
     res.encoding = 'utf-8'
     soup = bs4.BeautifulSoup(res.text, 'html.parser')
-    notification_element = soup.select(latest_notification)
-    date_element = soup.select(notification_date)
 
+    # Extracting and formatting the notification message and date
+    notification_element = soup.select(latest_notification) # Getting the latest notification message
+    date_element = soup.select(notification_date) # Getting the date of the notification
     message = notification_element[0].text.strip()
     date = date_element[0].text.strip()
-    ##anykey = input("\n=> Page information is downloaded. Press any key to continue.")
 
+
+    # String that gets passed to the e-mail sending function
     email_notification = (f"""        Район Изгрев 
         
         {date}
